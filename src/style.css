@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+body {
+  width: 100%;
+  background: #f1f1ef;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+svg {
+  fill: white;
+  width: 1em;
+  height: 1em;
+  cursor: pointer;
+}
+
+.todo-wrap {
+  margin: 0 auto;
+  margin-top: 3em;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 10px #0003;
+}
+
+.header {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.2px solid #d3d3d3;
+  width: 100%;
+  padding: 1em;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.refresh {
+  width: fit-content;
+  height: 1em;
+  opacity: 0.5;
+}
+
+.todo-input {
+  width: 100%;
+  padding: 1em;
+  border: none;
+  border-bottom: 0.2px solid #d3d3d3;
+}
+
+.todo-input::placeholder {
+  padding-left: 0.5em;
+  font-size: 1.1em;
+  font-style: italic;
+  font-weight: 100;
+}
+
+#myUL {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.items {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.2px solid #d3d3d3;
+}
+
+.items div {
+  display: flex;
+  align-items: center;
+}
+
+.items svg {
+  cursor: move;
+  opacity: 0.3;
+}
+
+.items svg:hover {
+  opacity: 1;
+}
+
+.todo-item input {
+  height: 1em;
+  width: 1em;
+  border: 0.5em solid #c1c1c3;
+}
+
+label {
+  padding-left: 0.7em;
+  word-spacing: 0.2em;
+  letter-spacing: 1px;
+}
+
+.clear-button {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  background: #d3d3d3;
+  font-size: 1em;
+  font-weight: lighter;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
