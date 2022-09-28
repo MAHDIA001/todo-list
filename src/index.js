@@ -23,7 +23,6 @@ import  './style.css ';
      complete: false,
    },
  ];
-
  const ul = document.querySelector( '#myUL ');
  // Create element
  const generate = (descValue, indexValue, completeValue) => {
