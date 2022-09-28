@@ -1,4 +1,5 @@
-import  './style.css  ';
+import  './style.css';
+
 const list = [
   {
     description: 'complete course',
@@ -23,7 +24,7 @@ const list = [
 ];
 const ul = document.querySelector('#myUL');
 // Create element
-const generate = (descValue, indexValue, completeValue) => {
+const generate = (descValue) => {
   const li = document.createElement('li');
   const check = document.createElement('input');
   const label = document.createElement('label');
@@ -36,6 +37,6 @@ const generate = (descValue, indexValue, completeValue) => {
   check.setAttribute('class', 'check');
   label.setAttribute('class', 'label');
 };
-list.forEach((p, i) => {
+list.forEach((p) => {
   generate(p.description, p.complete, p.index);
 });
