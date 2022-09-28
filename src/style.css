@@ -43,7 +43,7 @@ ul li.checked {
 
 /* Add a "checked" mark when clicked on */
 ul li.checked::before {
-  content: '';
+  content: "";
   position: absolute;
   border-color: #fff;
   border-style: solid;
@@ -113,8 +113,7 @@ ul li.checked::before {
 }
 
 .check {
-    margin-left: 20px;
-    float: left;
-    margin-right: 30px;
+  margin-left: 20px;
+  float: left;
+  margin-right: 30px;
 }
-
