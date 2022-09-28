@@ -77,7 +77,7 @@ ul li.checked::before {
 }
 
 /* Clear floats after the header */
-.header:after {
+.header::after {
   content: "";
   display: table;
   clear: both;
