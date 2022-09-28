@@ -26,8 +26,6 @@ import "./style.css";
 
  const ul = document.querySelector("#myUL");
 
-
-
  // Create element
  const generate = (descValue, indexValue, completeValue) => {
   const li = document.createElement('li');
