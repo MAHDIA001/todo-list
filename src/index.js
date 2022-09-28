@@ -1,31 +1,30 @@
 
-import "./style.css";
+import  './style.css ';
 
  const list = [
    {
-     description: "complete course",
+     description:  'complete course ',
      index: 0,
      complete: true,
    },
    {
-     description: "Meet rina",
+     description:  'Meet rina ',
      index: 1,
      complete: true,
    },
    {
-     description: "buy eggs",
+     description:  'buy eggs ',
      index: 2,
      complete: false,
    },
    {
-     description: "go to gym",
+     description:  'go to gym ',
      index: 3,
      complete: false,
    },
  ];
 
- const ul = document.querySelector("#myUL");
-
+ const ul = document.querySelector( '#myUL ');
  // Create element
  const generate = (descValue, indexValue, completeValue) => {
   const li = document.createElement('li');
@@ -37,8 +36,8 @@ import "./style.css";
    li.appendChild(label);
    label.appendChild(check);
    check.setAttribute('class','check');
-   check.setAttribute("class", "check");
-   label.setAttribute("class", "label");
+   check.setAttribute( 'class ',  'check ');
+   label.setAttribute( 'class ',  'label ');
    
  };
  list.forEach((p, i) => {
