@@ -34,8 +34,8 @@ const generate = (descValue) => {
   li.appendChild(label);
   label.appendChild(check);
   check.setAttribute('class', 'check');
-  check.setAttribute('class', 'check');
   label.setAttribute('class', 'label');
+  li.setAttribute('class','items')
 };
 list.forEach((p) => {
   generate(p.description, p.complete, p.index);
