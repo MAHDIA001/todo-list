@@ -1,21 +1,21 @@
 const list = [
   {
-    description: "complete course",
+    description:  'complete course ',
     index: 0,
     complete: true,
   },
   {
-    description: "Meet rina",
+    description:  'Meet rina ',
     index: 1,
     complete: true,
   },
   {
-    description: "buy eggs",
+    description:  'buy eggs ',
     index: 2,
     complete: false,
   },
   {
-    description: "go to gym",
+    description:  'go to gym ',
     index: 3,
     complete: false,
   },
