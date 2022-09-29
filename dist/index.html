@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO list</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My To Do List</title>
 <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
 <body>
-   <div id="myDIV" class="header">
-  <h2>Today's TODO</h2>
-  <input type="text" id="myInput" placeholder="Title...">
-<img src="[object Module]" alt="refresh">
-</div>
-
-<ul id="myUL">
-  
-</ul>
+  <section>
+    <div class="todo-wrap">
+      <div class="header">
+        <p class="title">Today's To Do</p>
+       <a href="" class="refresh"><svg class="w-6 h-6 refresh" fill="#8FF3FF" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg></a>
+      </div>
+      <input type="text" id="todo-input" name="input" class="todo-input" placeholder="Add to your list...">
+      <ul id="myUL">
+        
+      </ul>
+      <button id="clear-button" class="clear-button">Clear all completed</button>
+    </div>
+  </section>
 </body>
 </html>
