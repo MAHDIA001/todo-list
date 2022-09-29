@@ -76,6 +76,11 @@ svg {
   width: 100%;
 }
 
+label {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .items {
   width: 100%;
   margin: 0 auto;
@@ -84,11 +89,6 @@ svg {
   align-items: center;
   justify-content: space-between;
   border-bottom: 0.2px solid #d3d3d3;
-}
-
-.items div {
-  display: flex;
-  align-items: center;
 }
 
 .items svg {
@@ -129,18 +129,16 @@ label {
 }
 
 .check {
-    float: left;
-    margin-left: 10px;
-    margin-right: -100px;
+  float: left;
+  margin-left: 10px;
+  /* margin-right: -100px; */
 }
 
 .buttons {
-    position: absolute;
-    float: right;
-    margin-left: 390px;
-    padding: 5px 0;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
-    display: none;
+  position: absolute;
+  float: right;
+  margin-left: 390px;
+  padding: 5px 0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  display: none;
 }
-
-
