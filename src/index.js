@@ -34,7 +34,7 @@ const populateHtml = () => {
       (data) => `<li class='items'>
           <div>
             <input type='checkbox' ${
-            data.completed ? 'checked' : ''
+  data.completed ? 'checked' : ''
 }
         class='todo-item' name='car'>
             <input for='' class='task' value='${data.description}'>
@@ -49,7 +49,7 @@ const populateHtml = () => {
     const item = index + 1;
     Todo.removeTask(item);
     populateHtml();
-  }),);
+  }));
 };
 
 populateHtml();
@@ -66,13 +66,12 @@ toDoInput.addEventListener('keypress', (e) => {
 });
 
 const label = document.querySelectorAll('.task');
-label.forEach((input, index) =>
-  input.addEventListener('change', () => {tasksArray[index].description = input.value;
+label.forEach((input, index) => input.addEventListener('change', () => {
+    tasksArray[index].description = input.value;
     storage(tasksArray);
-  }),);
+  }));
 
 label.forEach((input, index) => input.addEventListener('click', () => {
-    const removeBtn = document.querySelectorAll('.remove-btn');
-    removeBtn[index].style.display = 'inline';
-  }),
-);
+  const removeBtn = document.querySelectorAll('.remove-btn');
+  removeBtn[index].style.display = 'inline';
+}),);
