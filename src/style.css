@@ -76,11 +76,6 @@ svg {
   width: 100%;
 }
 
-label {
-  display: flex;
-  justify-content: flex-start;
-}
-
 .items {
   width: 100%;
   margin: 0 auto;
@@ -131,7 +126,6 @@ label {
 .check {
   float: left;
   margin-left: 10px;
-  /* margin-right: -100px; */
 }
 
 .buttons {
