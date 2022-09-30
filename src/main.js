@@ -1,4 +1,4 @@
-import Storage from './storage';
+import Storage from './storage.js';
 
 const itemList = document.querySelector('#myUL');
 const tasksArray = JSON.parse(localStorage.getItem('todo')) || [];
@@ -40,10 +40,10 @@ const populateHtml = () => {
   const removeBtn = document.querySelectorAll('.remove-btn');
 
   removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
-      const item = index + 1;
-      Todo.removeTask(item);
-      populateHtml();
-    }));
+    const item = index + 1;
+    Todo.removeTask(item);
+    populateHtml();
+  }));
 };
 
 populateHtml();
@@ -62,14 +62,13 @@ toDoInput.addEventListener('keypress', (e) => {
 
 const label = document.querySelectorAll('.task');
 label.forEach((input, index) => input.addEventListener('change', () => {
-    tasksArray[index].description = input.value;
-    Storage(tasksArray);
-  }));
+  tasksArray[index].description = input.value;
+  Storage(tasksArray);
+}));
 // const list  = document.querySelector('#task');
 const complete = () => {
   const check = document.querySelectorAll('input[type=checkbox]');
-  check.forEach((input, index) =>
-    input.addEventListener('change', () => {
+  check.forEach((input, index) => input.addEventListener('change', () => {
       if (input.checked) {
         tasksArray[index].completed = true;
         // list[index].style.textDecoration = 'line-through';
@@ -77,11 +76,10 @@ const complete = () => {
       } else {
         tasksArray[index].completed = false;
         //    list[index].style.textDecoration = 'none';
-        //    list[index].style.color = 'black';  
-    }
+        //    list[index].style.color = 'black'; 
+      }
       Storage(tasksArray);
-    })
-  );
+    }), );
 };
 
 const clear = document.querySelector('#clear-button');
