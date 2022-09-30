@@ -69,17 +69,17 @@ label.forEach((input, index) => input.addEventListener('change', () => {
 const complete = () => {
   const check = document.querySelectorAll('input[type=checkbox]');
   check.forEach((input, index) => input.addEventListener('change', () => {
-      if (input.checked) {
-        tasksArray[index].completed = true;
-        // list[index].style.textDecoration = 'line-through';
-        // list[index].style.color = 'grey';
-      } else {
-        tasksArray[index].completed = false;
-        //    list[index].style.textDecoration = 'none';
-        //    list[index].style.color = 'black'; 
-      }
-      Storage(tasksArray);
-    }), );
+    if (input.checked) {
+      tasksArray[index].completed = true;
+      // list[index].style.textDecoration = 'line-through';
+      // list[index].style.color = 'grey';
+    } else {
+      tasksArray[index].completed = false;
+      //    list[index].style.textDecoration = 'none';
+      //    list[index].style.color = 'black';
+    }
+    Storage(tasksArray);
+  }),);
 };
 
 const clear = document.querySelector('#clear-button');
