@@ -1,8 +1,6 @@
-import Todo from './main';
-import Storage from './storage';
+import Storage from './storage.js';
 
 const tasksArray = JSON.parse(localStorage.getItem('todo')) || [];
-const list = document.querySelector('#task');
 const complete = () => {
   const check = document.querySelectorAll('input[type=checkbox]');
   check.forEach((input, index) =>
@@ -20,5 +18,4 @@ const complete = () => {
     })
   );
 };
-
 export default complete;

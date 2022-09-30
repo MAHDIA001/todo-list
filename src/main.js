@@ -1,4 +1,4 @@
- import Storage from './storage';
+import Storage from './storage.js';
 
 const itemList = document.querySelector('#myUL');
 const tasksArray = JSON.parse(localStorage.getItem('todo')) || [];
@@ -88,14 +88,4 @@ const complete = () => {
   );
 };
 
-const clear = document.querySelector('#clear-button');
-clear.addEventListener('click', () => {
-  const completed = tasksArray.filter((data) => data.completed === true);
-  completed.forEach((data) => {
-    const index = tasksArray.indexOf(data);
-    tasksArray.splice(index, 1);
-  });
-  Storage(tasksArray);
-  populateHtml();
-});
-complete();
+;
