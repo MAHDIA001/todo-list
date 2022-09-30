@@ -86,11 +86,6 @@ svg {
   border-bottom: 0.2px solid #d3d3d3;
 }
 
-.items div {
-  display: flex;
-  align-items: center;
-}
-
 .items svg {
   cursor: move;
   opacity: 0.3;
@@ -126,4 +121,18 @@ label {
 .clear-button:hover {
   opacity: 1;
   text-decoration: underline;
+}
+
+.check {
+  float: left;
+  margin-left: 10px;
+}
+
+.buttons {
+  position: absolute;
+  float: right;
+  margin-left: 390px;
+  padding: 5px 0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  display: none;
 }
