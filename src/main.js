@@ -1,3 +1,5 @@
+ import Storage from './storage';
+
 const itemList = document.querySelector('#myUL');
 const tasksArray = JSON.parse(localStorage.getItem('todo')) || [];
 export default class Todo {
@@ -18,32 +20,32 @@ export default class Todo {
     this.updateIndex();
   };
 }
-const storage = (todo) => {
-  todo.sort((a, b) => a.index - b.index);
-  localStorage.setItem('todo', JSON.stringify(todo));
-};
+
 const populateHtml = () => {
-  storage(tasksArray);
+  Storage(tasksArray);
   itemList.innerHTML = tasksArray
     .map(
       (data) => `<li class='items'>
           <div>
             <input type='checkbox' ${data.completed ? 'checked' : ''}
         class='todo-item' name='car'>
-            <input for='' class='task' value='${data.description}'>
+            <input for='' class='task' id='task' value='${data.description}'>
           </div>
           <div>
           <button class='remove-btn'>x</button>
           </div>
-        </li>`,
-    ).join(' ');
+        </li>`
+    )
+    .join(' ');
   const removeBtn = document.querySelectorAll('.remove-btn');
 
-  removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
-    const item = index + 1;
-    Todo.removeTask(item);
-    populateHtml();
-  }));
+  removeBtn.forEach((btn, index) =>
+    btn.addEventListener('click', () => {
+      const item = index + 1;
+      Todo.removeTask(item);
+      populateHtml();
+    })
+  );
 };
 
 populateHtml();
@@ -61,7 +63,39 @@ toDoInput.addEventListener('keypress', (e) => {
 });
 
 const label = document.querySelectorAll('.task');
-label.forEach((input, index) => input.addEventListener('change', () => {
-  tasksArray[index].description = input.value;
-  storage(tasksArray);
-}));
+label.forEach((input, index) =>
+  input.addEventListener('change', () => {
+    tasksArray[index].description = input.value;
+    Storage(tasksArray);
+  })
+);
+const list  = document.querySelector('#task');
+const complete = () => {
+  const check = document.querySelectorAll('input[type=checkbox]');
+  check.forEach((input, index) =>
+    input.addEventListener('change', () => {
+      if (input.checked) {
+        tasksArray[index].completed = true;
+        // list[index].style.textDecoration = 'line-through';
+        // list[index].style.color = 'grey';
+      } else {
+        tasksArray[index].completed = false;
+        //    list[index].style.textDecoration = 'none';
+        //    list[index].style.color = 'black';  
+    }
+      Storage(tasksArray);
+    })
+  );
+};
+
+const clear = document.querySelector('#clear-button');
+clear.addEventListener('click', () => {
+  const completed = tasksArray.filter((data) => data.completed === true);
+  completed.forEach((data) => {
+    const index = tasksArray.indexOf(data);
+    tasksArray.splice(index, 1);
+  });
+  Storage(tasksArray);
+  populateHtml();
+});
+complete();
