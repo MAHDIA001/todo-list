@@ -6,8 +6,8 @@ const complete = () => {
   check.forEach((input, index) => input.addEventListener('change', () => {
     if (input.checked) {
       tasksArray[index].completed = true;
-        // list[index].style.textDecoration = 'line-through';
-        // list[index].style.color = 'grey';
+      // list[index].style.textDecoration = 'line-through';
+      // list[index].style.color = 'grey';
     } else {
       tasksArray[index].completed = false;
       //    list[index].style.textDecoration = 'none';

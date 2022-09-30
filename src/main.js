@@ -79,7 +79,7 @@ const complete = () => {
       //    list[index].style.color = 'black';
     }
     Storage(tasksArray);
-  }),);
+  }));
 };
 
 const clear = document.querySelector('#clear-button');
