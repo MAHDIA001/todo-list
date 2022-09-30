@@ -35,8 +35,8 @@ const populateHtml = () => {
           <div>
           <button class='remove-btn'>x</button>
           </div>
-        </li>`
-        ).join(' ');
+        </li>`,
+    ).join(' ');
   const removeBtn = document.querySelectorAll('.remove-btn');
 
   removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
