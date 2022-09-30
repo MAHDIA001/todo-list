@@ -14,30 +14,28 @@ const populateHtml = () => {
     .map(
       (data) => `<li class='items'>
           <div>
-            <input type='checkbox' ${data.completed ? "checked" : ""}
+            <input type='checkbox' ${data.completed ? 'checked' : ''}
         class='todo-item' name='car'>
             <input for='' class='task' id='task' value='${data.description}'>
           </div>
           <div>
           <button class='remove-btn'>x</button>
           </div>
-        </li>`
+        </li>`,
     )
-    .join(" ");
-  const removeBtn = document.querySelectorAll(".remove-btn");
+    .join(' ');
+  const removeBtn = document.querySelectorAll('.remove-btn');
 
-  removeBtn.forEach((btn, index) =>
-    btn.addEventListener("click", () => {
+  removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
       const item = index + 1;
       Todo.removeTask(item);
       populateHtml();
-    })
-  );
+    }));
 };
 
 populateHtml();
-const clear = document.querySelector("#clear-button");
-clear.addEventListener("click", () => {
+const clear = document.querySelector('#clear-button');
+clear.addEventListener('click', () => {
   const completed = tasksArray.filter((data) => data.completed === true);
   completed.forEach((data) => {
     const index = tasksArray.indexOf(data);

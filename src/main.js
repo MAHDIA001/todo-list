@@ -34,18 +34,16 @@ const populateHtml = () => {
           <div>
           <button class='remove-btn'>x</button>
           </div>
-        </li>`
+        </li>`,
     )
     .join(' ');
   const removeBtn = document.querySelectorAll('.remove-btn');
 
-  removeBtn.forEach((btn, index) =>
-    btn.addEventListener('click', () => {
+  removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
       const item = index + 1;
       Todo.removeTask(item);
       populateHtml();
-    })
-  );
+    }));
 };
 
 populateHtml();
@@ -63,29 +61,25 @@ toDoInput.addEventListener('keypress', (e) => {
 });
 
 const label = document.querySelectorAll('.task');
-label.forEach((input, index) =>
-  input.addEventListener('change', () => {
+label.forEach((input, index) => input.addEventListener('change', () => {
     tasksArray[index].description = input.value;
     Storage(tasksArray);
-  })
-);
-const list  = document.querySelector('#task');
-const complete = () => {
-  const check = document.querySelectorAll('input[type=checkbox]');
-  check.forEach((input, index) =>
-    input.addEventListener('change', () => {
-      if (input.checked) {
-        tasksArray[index].completed = true;
-        // list[index].style.textDecoration = 'line-through';
-        // list[index].style.color = 'grey';
-      } else {
-        tasksArray[index].completed = false;
-        //    list[index].style.textDecoration = 'none';
-        //    list[index].style.color = 'black';  
-    }
-      Storage(tasksArray);
-    })
-  );
-};
-
-;
+  }));
+// // const list  = document.querySelector('#task');
+// const complete = () => {
+//   const check = document.querySelectorAll('input[type=checkbox]');
+//   check.forEach((input, index) =>
+//     input.addEventListener('change', () => {
+//       if (input.checked) {
+//         tasksArray[index].completed = true;
+//         // list[index].style.textDecoration = 'line-through';
+//         // list[index].style.color = 'grey';
+//       } else {
+//         tasksArray[index].completed = false;
+//         //    list[index].style.textDecoration = 'none';
+//         //    list[index].style.color = 'black';  
+//     }
+//       Storage(tasksArray);
+//     })
+//   );
+// };

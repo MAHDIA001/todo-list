@@ -3,8 +3,7 @@ import Storage from './storage.js';
 const tasksArray = JSON.parse(localStorage.getItem('todo')) || [];
 const complete = () => {
   const check = document.querySelectorAll('input[type=checkbox]');
-  check.forEach((input, index) =>
-    input.addEventListener('change', () => {
+  check.forEach((input, index) => input.addEventListener('change', () => {
       if (input.checked) {
         tasksArray[index].completed = true;
         // list[index].style.textDecoration = 'line-through';
@@ -15,7 +14,6 @@ const complete = () => {
         //    list[index].style.color = 'black';
       }
       Storage(tasksArray);
-    })
-  );
+    }));
 };
 export default complete;
