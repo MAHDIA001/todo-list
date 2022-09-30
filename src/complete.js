@@ -1,5 +1,4 @@
 import Storage from './storage.js';
-
 const tasksArray = JSON.parse(localStorage.getItem('todo')) || [];
 const complete = () => {
   const check = document.querySelectorAll('input[type=checkbox]');

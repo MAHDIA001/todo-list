@@ -1,4 +1,4 @@
-import Storage from './storage.js';
+import Storage from './storage';
 
 const itemList = document.querySelector('#myUL');
 const tasksArray = JSON.parse(localStorage.getItem('todo')) || [];
@@ -65,21 +65,33 @@ label.forEach((input, index) => input.addEventListener('change', () => {
     tasksArray[index].description = input.value;
     Storage(tasksArray);
   }));
-// // const list  = document.querySelector('#task');
-// const complete = () => {
-//   const check = document.querySelectorAll('input[type=checkbox]');
-//   check.forEach((input, index) =>
-//     input.addEventListener('change', () => {
-//       if (input.checked) {
-//         tasksArray[index].completed = true;
-//         // list[index].style.textDecoration = 'line-through';
-//         // list[index].style.color = 'grey';
-//       } else {
-//         tasksArray[index].completed = false;
-//         //    list[index].style.textDecoration = 'none';
-//         //    list[index].style.color = 'black';  
-//     }
-//       Storage(tasksArray);
-//     })
-//   );
-// };
+// const list  = document.querySelector('#task');
+const complete = () => {
+  const check = document.querySelectorAll('input[type=checkbox]');
+  check.forEach((input, index) =>
+    input.addEventListener('change', () => {
+      if (input.checked) {
+        tasksArray[index].completed = true;
+        // list[index].style.textDecoration = 'line-through';
+        // list[index].style.color = 'grey';
+      } else {
+        tasksArray[index].completed = false;
+        //    list[index].style.textDecoration = 'none';
+        //    list[index].style.color = 'black';  
+    }
+      Storage(tasksArray);
+    })
+  );
+};
+
+const clear = document.querySelector('#clear-button');
+clear.addEventListener('click', () => {
+  const completed = tasksArray.filter((data) => data.completed === true);
+  completed.forEach((data) => {
+    const index = tasksArray.indexOf(data);
+    tasksArray.splice(index, 1);
+  });
+  Storage(tasksArray);
+  populateHtml();
+});
+complete();
