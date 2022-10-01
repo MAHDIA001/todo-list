@@ -34,18 +34,13 @@ const populateHtml = () => {
           <div>
           <button class='remove-btn'>x</button>
           </div>
-        </li>`
-    )
-    .join(' ');
+        </li>`).join(' ');
   const removeBtn = document.querySelectorAll('.remove-btn');
-
-  removeBtn.forEach((btn, index) =>
-    btn.addEventListener('click', () => {
+  removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
       const item = index + 1;
       Todo.removeTask(item);
       populateHtml();
-    })
-  );
+    }));
 };
 
 populateHtml();
@@ -59,39 +54,39 @@ toDoInput.addEventListener('keypress', (e) => {
     tasksArray.push(newToDo);
     populateHtml();
     toDoInput.value = '';
-      window.location.reload;
+    window.location.reload;
   }
 });
 
 const label = document.querySelectorAll('.task');
-label.forEach((input, index) =>
-  input.addEventListener('change', () => {
+label.forEach((input, index) => input.addEventListener('change', () => {
     tasksArray[index].description = input.value;
     Storage(tasksArray);
-  })
-);
+  }));
+
+const task =  document.querySelectorAll('.task');
 const complete = () => {
   const box = document.querySelectorAll('.box');
-  box.forEach((input, index) =>
-    input.addEventListener('change', () => {
+  box.forEach((input, index) => input.addEventListener('change', (e) => {
       if (tasksArray[index].completed === false) {
+          e.target.closest("input").style.textDecoration = "line-through";
         tasksArray[index].completed = true;
       } else {
         tasksArray[index].completed = false;
       }
       Storage(tasksArray);
-  }));
+    }));
 };
 
 const clear = document.querySelector('#clear-button');
 clear.addEventListener('click', () => {
-    const completedTasks = tasksArray.filter((data) => data.completed === true);
-    completedTasks.forEach((data) => {
-      const index = tasksArray.indexOf(data);
-      tasksArray.splice(index, 1);
-    });
-    Storage(tasksArray);
-    populateHtml();
-    window.location.reload();
+  const completedTasks = tasksArray.filter((data) => data.completed === true);
+  completedTasks.forEach((data) => {
+    const index = tasksArray.indexOf(data);
+    tasksArray.splice(index, 1);
   });
+  Storage(tasksArray);
+  populateHtml();
+  window.location.reload();
+});
 complete();
