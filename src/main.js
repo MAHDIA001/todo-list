@@ -34,8 +34,8 @@ const populateHtml = () => {
           <div>
           <button class='remove-btn'>x</button>
           </div>
-        </li>`
-        ).join(' ');
+        </li>`,
+    ).join(' ');
   const removeBtn = document.querySelectorAll('.remove-btn');
   removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
     const item = index + 1;
@@ -55,7 +55,7 @@ toDoInput.addEventListener('keypress', (e) => {
     tasksArray.push(newToDo);
     populateHtml();
     toDoInput.value = '';
-    window.location.reload;
+    window.location.reload();
   }
 });
 
@@ -69,7 +69,7 @@ const complete = () => {
   const box = document.querySelectorAll('.box');
   box.forEach((input, index) => input.addEventListener('change', (e) => {
     if (tasksArray[index].completed === false) {
-      e.target.closest("input").style.textDecoration = 'line-through';
+      e.target.closest('input').style.textDecoration = 'line-through';
       tasksArray[index].completed = true;
     } else {
       tasksArray[index].completed = false;
