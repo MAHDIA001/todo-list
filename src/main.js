@@ -1,3 +1,5 @@
+import Storage from './storage.js';
+
 const itemList = document.querySelector('#myUL');
 const tasksArray = JSON.parse(localStorage.getItem('todo')) || [];
 export default class Todo {
@@ -18,19 +20,16 @@ export default class Todo {
     this.updateIndex();
   };
 }
-const storage = (todo) => {
-  todo.sort((a, b) => a.index - b.index);
-  localStorage.setItem('todo', JSON.stringify(todo));
-};
+
 const populateHtml = () => {
-  storage(tasksArray);
+  Storage(tasksArray);
   itemList.innerHTML = tasksArray
     .map(
       (data) => `<li class='items'>
           <div>
             <input type='checkbox' ${data.completed ? 'checked' : ''}
-        class='todo-item' name='car'>
-            <input for='' class='task' value='${data.description}'>
+        class='box' name='car'>
+            <input for='' class='task' id='task' value='${data.description}'>
           </div>
           <div>
           <button class='remove-btn'>x</button>
@@ -38,7 +37,6 @@ const populateHtml = () => {
         </li>`,
     ).join(' ');
   const removeBtn = document.querySelectorAll('.remove-btn');
-
   removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
     const item = index + 1;
     Todo.removeTask(item);
@@ -57,11 +55,38 @@ toDoInput.addEventListener('keypress', (e) => {
     tasksArray.push(newToDo);
     populateHtml();
     toDoInput.value = '';
+    window.location.reload();
   }
 });
 
 const label = document.querySelectorAll('.task');
 label.forEach((input, index) => input.addEventListener('change', () => {
   tasksArray[index].description = input.value;
-  storage(tasksArray);
+  Storage(tasksArray);
 }));
+
+const complete = () => {
+  const box = document.querySelectorAll('.box');
+  box.forEach((input, index) => input.addEventListener('change', (e) => {
+    if (tasksArray[index].completed === false) {
+      e.target.closest('input').style.textDecoration = 'line-through';
+      tasksArray[index].completed = true;
+    } else {
+      tasksArray[index].completed = false;
+    }
+    Storage(tasksArray);
+  }));
+};
+
+const clear = document.querySelector('#clear-button');
+clear.addEventListener('click', () => {
+  const completedTasks = tasksArray.filter((data) => data.completed === true);
+  completedTasks.forEach((data) => {
+    const index = tasksArray.indexOf(data);
+    tasksArray.splice(index, 1);
+  });
+  Storage(tasksArray);
+  populateHtml();
+  window.location.reload();
+});
+complete();
