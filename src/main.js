@@ -28,22 +28,24 @@ const populateHtml = () => {
       (data) => `<li class='items'>
           <div>
             <input type='checkbox' ${data.completed ? 'checked' : ''}
-        class='todo-item' name='car'>
+        class='box' name='car'>
             <input for='' class='task' id='task' value='${data.description}'>
           </div>
           <div>
           <button class='remove-btn'>x</button>
           </div>
-        </li>`,
+        </li>`
     )
     .join(' ');
   const removeBtn = document.querySelectorAll('.remove-btn');
 
-  removeBtn.forEach((btn, index) => btn.addEventListener('click', () => {
-    const item = index + 1;
-    Todo.removeTask(item);
-    populateHtml();
-  }));
+  removeBtn.forEach((btn, index) =>
+    btn.addEventListener('click', () => {
+      const item = index + 1;
+      Todo.removeTask(item);
+      populateHtml();
+    })
+  );
 };
 
 populateHtml();
@@ -57,39 +59,39 @@ toDoInput.addEventListener('keypress', (e) => {
     tasksArray.push(newToDo);
     populateHtml();
     toDoInput.value = '';
+      window.location.reload;
   }
 });
 
 const label = document.querySelectorAll('.task');
-label.forEach((input, index) => input.addEventListener('change', () => {
-  tasksArray[index].description = input.value;
-  Storage(tasksArray);
-}));
-// const list  = document.querySelector('#task');
-const complete = () => {
-  const check = document.querySelectorAll('input[type=checkbox]');
-  check.forEach((input, index) => input.addEventListener('change', () => {
-    if (input.checked) {
-      tasksArray[index].completed = true;
-      // list[index].style.textDecoration = 'line-through';
-      // list[index].style.color = 'grey';
-    } else {
-      tasksArray[index].completed = false;
-      //    list[index].style.textDecoration = 'none';
-      //    list[index].style.color = 'black';
-    }
+label.forEach((input, index) =>
+  input.addEventListener('change', () => {
+    tasksArray[index].description = input.value;
     Storage(tasksArray);
+  })
+);
+const complete = () => {
+  const box = document.querySelectorAll('.box');
+  box.forEach((input, index) =>
+    input.addEventListener('change', () => {
+      if (tasksArray[index].completed === false) {
+        tasksArray[index].completed = true;
+      } else {
+        tasksArray[index].completed = false;
+      }
+      Storage(tasksArray);
   }));
 };
 
 const clear = document.querySelector('#clear-button');
 clear.addEventListener('click', () => {
-  const completed = tasksArray.filter((data) => data.completed === true);
-  completed.forEach((data) => {
-    const index = tasksArray.indexOf(data);
-    tasksArray.splice(index, 1);
+    const completedTasks = tasksArray.filter((data) => data.completed === true);
+    completedTasks.forEach((data) => {
+      const index = tasksArray.indexOf(data);
+      tasksArray.splice(index, 1);
+    });
+    Storage(tasksArray);
+    populateHtml();
+    window.location.reload();
   });
-  Storage(tasksArray);
-  populateHtml();
-});
 complete();
